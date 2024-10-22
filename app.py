@@ -59,7 +59,7 @@ html_content = load_html('pagina.html')
 st.markdown(html_content, unsafe_allow_html=True)
 
 # Interacción del usuario
-student_name = st.text_input("Ingresa tu nombre:")
+student_name = st.text_input("Ingresa tu nombre completo:")
 student_email = st.text_input("Ingresa tu correo electrónico:")
 interests = st.text_input("¿Cuáles son tus intereses académicos? (ej. Matemáticas, Ciencias, Artes)")
 
