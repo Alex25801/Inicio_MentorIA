@@ -138,11 +138,17 @@ if st.button('Mostrar alerta'):
     st.write("¡Hola soy Asimov!")
 
 # Manejo de la comunicación con el chatbot
-if st.session_state.get('user_input'):
-    user_input = st.session_state.user_input
-    response = chatbot_response(user_input)
-    st.session_state['chat_history'].append({'user': user_input, 'bot': response['response']})
+if 'chat_history' not in st.session_state:
+    st.session_state['chat_history'] = []
 
+# Definición de la función chatbot_response antes de su uso
 def chatbot_response(user_input):
     # Lógica para generar la respuesta del chatbot
     return {"response": "Esta es una respuesta de ejemplo."}  # Cambia esto por la lógica real
+
+# Manejo de la comunicación con el chatbot
+if st.session_state.get('user_input'):
+    user_input = st.session_state.user_input
+    if user_input:  # Verificar que user_input no esté vacío
+        response = chatbot_response(user_input)  # Aquí se usa user_input
+        st.session_state['chat_history'].append({'user': user_input, 'bot': response['response']})
