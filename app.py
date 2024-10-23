@@ -142,3 +142,7 @@ if st.session_state.get('user_input'):
     user_input = st.session_state.user_input
     response = chatbot_response(user_input)
     st.session_state['chat_history'].append({'user': user_input, 'bot': response['response']})
+
+def chatbot_response(user_input):
+    # Lógica para generar la respuesta del chatbot
+    return {"response": "Esta es una respuesta de ejemplo."}  # Cambia esto por la lógica real
