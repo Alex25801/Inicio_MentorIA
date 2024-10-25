@@ -522,7 +522,7 @@ col1, col2 = st.columns([4, 1])
 with col1:
     st.title("Recomendador de Trayectorias Educativas y Profesionales")
 with col2:
-    st.image("descarga.jpg", width=100)
+    st.image("descarga.jpeg", width=100)
 
 # Crear pestañas
 tab1, tab2, tab3, tab4 = st.tabs(["Prueba de Cultura General", "Recomendación", "Habilidades", "Preguntas API"])
