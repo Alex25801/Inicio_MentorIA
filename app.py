@@ -125,7 +125,7 @@ def generar_recomendacion(intereses, habilidades, rendimiento):
     
     Intereses: {intereses}
     Habilidades: {habilidades}
-    Rendimiento académico: {rendimiento}
+    Rendimiento acadmico: {rendimiento}
     
     Sugiere posibles trayectorias educativas y profesionales. Proporciona al menos 3 opciones 
     con una breve explicación de por qué podrían ser adecuadas.
@@ -522,7 +522,7 @@ col1, col2 = st.columns([4, 1])
 with col1:
     st.title("Recomendador de Trayectorias Educativas y Profesionales")
 with col2:
-    st.image("descarga.jpeg", width=100)
+    st.image("descarga.jpg", width=100)
 
 # Crear pestañas
 tab1, tab2, tab3, tab4 = st.tabs(["Prueba de Cultura General", "Recomendación", "Habilidades", "Preguntas API"])
@@ -551,58 +551,86 @@ with tab3:
 with tab4:
     preguntas_api()
 
-# Sidebar con instrucciones
-st.sidebar.markdown(""" 
-<div style="background-color: #E0E0E0; padding: 10px; border-radius: 5px;">
-<h2 style="color: black;">Cómo usar esta herramienta:</h2>
-
-1. **Prueba de Cultura General:** Responde a una serie de preguntas sobre diversos temas. 
-   - Al finalizar, recibirás una puntuación y sugerencias sobre habilidades que puedes desarrollar.
-   - Las preguntas abarcan áreas como matemáticas, biología, historia y geografía.
-
-2. **Generador de Recomendaciones:** Ingresa tus intereses y habilidades.
-   - Selecciona tu rendimiento académico.
-   - Haz clic en "Generar recomendación" para recibir sugerencias sobre posibles trayectorias educativas y profesionales.
-   - Las recomendaciones incluirán universidades relevantes de América Latina, Europa, Asia y otros continentes, junto con las carreras que ofrecen.
-po
-3. **Cuestionario de Habilidades:** Responde a preguntas sobre tus preferencias y habilidades.
-   - Este cuestionario te ayudará a identificar tus habilidades fuertes y blandas.
-   - Al finalizar, recibirás un análisis que destaca en qué áreas podrías sobresalir, basado en tus respuestas.
-
-4. **Preguntas API:** Responde a preguntas relacionadas con aptitudes, razonamiento lógico y velocidad cognitiva.
-   - Al finalizar, recibirás una puntuación que refleja tu rendimiento en estas áreas.
-
-La IA analizará tu información y sugerirá posibles trayectorias educativas y profesionales.
-</div>
-""", unsafe_allow_html=True)
-
-# Estilo CSS para cambiar el fondo a gris y todas las letras a negro
+# Modificar el estilo CSS para los nuevos colores y el fondo blanco de los inputs en la barra lateral
 st.markdown(
     """
     <style>
+    /* Estilo para el cuerpo principal de la aplicación */
     .stApp {
-        background-color: #D3D3D3; /* Fondo gris */
-        color: #000000; /* Texto negro */
+        background-color: #0A192F;  /* Azul muy oscuro */
+        color: #FFFFFF;  /* Texto blanco */
     }
+    
+    /* Estilo para los botones */
     .stButton > button {
-        background-color: #FF6347; /* Tomate */
-        color: white; /* Color del texto del botón */
+        background-color: #FF6347;
+        color: white;
     }
+    
+    /* Estilo para los campos de entrada de texto */
     .stTextInput > div > div > input {
-        background-color: #A9A9A9; /* Fondo de input gris oscuro */
-        color: black; /* Texto negro en input */
+        background-color: #1E2D3D;  /* Azul oscuro */
+        color: white;
     }
+    
+    /* Estilo para las áreas de texto */
     .stTextArea > div > div > textarea {
-        background-color: #A9A9A9; /* Fondo de textarea gris oscuro */
-        color: black; /* Texto negro en textarea */
+        background-color: #1E2D3D;  /* Azul oscuro */
+        color: white;
     }
+    
+    /* Estilo para los selectbox */
     .stSelectbox > div > div > select {
-        background-color: #A9A9A9; /* Fondo de selectbox gris oscuro */
-        color: black; /* Texto negro en selectbox */
+        background-color: #1E2D3D;  /* Azul oscuro */
+        color: white;
     }
-    /* Asegurarse de que todas las letras sean negras */
+    
+    /* Estilo para los encabezados y texto general */
     h1, h2, h3, h4, h5, h6, p, li, span {
-        color: #000000; /* Texto negro para encabezados y párrafos */
+        color: #FFFFFF;
+    }
+    
+    /* Estilo para la barra lateral */
+    [data-testid="stSidebar"] {
+        background-color: #D3D3D3;  /* Gris claro */
+    }
+    [data-testid="stSidebar"] * {
+        color: #000000 !important;  /* Texto negro */
+    }git 
+    
+    /* Estilo para el texto en la sección "Cómo utilizar la herramienta" */
+    .como-utilizar {
+        color: #FFFFFF;  /* Texto blanco */
+    }
+    
+    /* Estilo para los campos de entrada de texto en la barra lateral */
+    [data-testid="stSidebar"] .stTextInput > div > div > input {
+        background-color: white;
+        color: black;
+    }
+    
+    /* Estilo para las áreas de texto en la barra lateral */
+    [data-testid="stSidebar"] .stTextArea > div > div > textarea {
+        background-color: white;
+        color: black;
+    }
+    
+    /* Estilo para la barra transportadora de la barra lateral */
+    [data-testid="stSidebar"] .stScrollbar {
+        background-color: #0A192F;  /* Fondo azul oscuro para que coincida con el tema */
+    }
+
+    [data-testid="stSidebar"] .stScrollbar:hover {
+        background-color: #1E2D3D;  /* Un poco más claro al pasar el mouse */
+    }
+
+    /* Estilo para el "pulgar" de la barra transportadora */
+    [data-testid="stSidebar"] .stScrollbar > div {
+        background-color: #000000 !important;  /* Negro */
+    }
+
+    [data-testid="stSidebar"] .stScrollbar > div:hover {
+        background-color: #333333 !important;  /* Gris oscuro al pasar el mouse */
     }
     </style>
     """,
@@ -634,8 +662,7 @@ st.markdown(
 )
 
 # En la sección de "Cómo utilizar la herramienta"
-st.subheader("Cómo utilizar la herramienta")
-st.markdown('<div class="como-utilizar">Aquí puedes incluir instrucciones sobre cómo usar la herramienta. Asegúrate de seguir los pasos indicados para obtener los mejores resultados.</div>', unsafe_allow_html=True)
+
 
 
 import streamlit as st
@@ -688,97 +715,37 @@ def save_conversation(student_name, user_input, bot_response):
     conn.commit()
     conn.close()
 
-# Estilo del chat emergente
-st.markdown("""
-    <style>
-        .chat-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
-            height: 400px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: none;
-            background-color: white;
-            z-index: 1000;
-        }
-        .chat-header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        .chat-body {
-            padding: 10px;
-            overflow-y: auto;
-            height: 300px;
-        }
-        .chat-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-    <div class="chat-container" id="chat-container">
-        <div class="chat-header">Asistente Vocacional</div>
-        <div class="chat-body" id="chat-body">
-            <!-- Aquí se mostrarán las respuestas -->
-        </div>
-    </div>
-    <button class="chat-toggle" id="chat-toggle">
-        <img src="zorro chat bot.jpg" alt="Logo" style="width: 50px; height: 50px;"/>
-    </button>
-    <script>
-        const chatToggle = document.getElementById('chat-toggle');
-        const chatContainer = document.getElementById('chat-container');
-        chatToggle.onclick = function() {
-            chatContainer.style.display = chatContainer.style.display === 'none' ? 'block' : 'none';
-        };
-    </script>
-""", unsafe_allow_html=True)
+# Agregar la barra lateral con el chatbot Asimov
+st.sidebar.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
 
-# Agregar un título a la aplicación
-st.title("Asimov")  # Título de la aplicación
+# Agregar la imagen en la parte superior de la barra lateral
+st.sidebar.image("logui.jpg", width=200)  # Ajusta el ancho según sea necesario
 
-# Interacción del usuario
-student_name = st.text_input("¡Hola! Ingresa tu nombre completo para comenzar tu viaje hacia la carrera ideal:")
+st.sidebar.title("Asimov - Asistente Vocacional")
 
-user_input = st.text_input("Cuéntame, ¿qué es lo que realmente te preocupa sobre tu futuro académico? ¿Tienes dudas sobre qué carrera elegir o cómo enfrentar la incertidumbre? Estoy aquí para escucharte y ayudarte a encontrar claridad en tu camino.")
+# Mover la interacción del usuario a la barra lateral
+student_name = st.sidebar.text_input("¡Hola! Ingresa tu nombre completo para comenzar tu viaje hacia la carrera ideal:")
+
+user_input = st.sidebar.text_input("Cuéntame, ¿qué es lo que realmente te preocupa sobre tu futuro académico? ¿Tienes dudas sobre qué carrera elegir o cómo enfrentar la incertidumbre? Estoy aquí para escucharte y ayudarte a encontrar claridad en tu camino.")
 
 if user_input:
     # Usar el modelo para analizar las respuestas y recomendar carreras
     chat_session = model.start_chat(history=[])
     response = chat_session.send_message(user_input)  # Enviar la entrada del usuario para análisis
     
-    # Mostrar la respuesta en la ventana emergente
-    st.markdown(f'<div class="chat-body" id="chat-body">🦊 Respuesta del asistente: {response.text}</div>', unsafe_allow_html=True)
+    # Mostrar la respuesta en la barra lateral
+    st.sidebar.markdown(f'🦊 Respuesta del asistente: {response.text}')
     
     # Sugerir MentorIA como herramienta
-    st.write("En nuestra aplicación MentorIA, podemos profundizar más sobre este tema. Tenemos grandes apartados de opciones para ti.")
+    st.sidebar.write("En nuestra aplicación MentorIA, podemos profundizar más sobre este tema. Tenemos grandes apartados de opciones para ti.")
     
     # Guardar la conversación en la base de datos
     save_conversation(student_name, user_input, response.text)
 
-def respuesta_intereses(intereses):
-    if intereses:  # Cambiado 'interests' a 'intereses'
-        return f"¡Genial! Te recomiendo usar nuestro recomendador de carreras que utiliza tus intereses y habilidades para encontrar la carrera universitaria que más se ajusta a ti. Puedes explorar más en 'MentorIA'."
-    else:
-        return "No te preocupes, aquí te ayudamos a descubrir tus habilidades y tu promedio académico con nuestros sencillos tests. ¡Anímate a probarlos y descubre tu potencial!"
+# Crear un botón en la barra lateral que al hacer clic muestre un mensaje
+if st.sidebar.button('Mostrar alerta'):
+    st.sidebar.write("¡Hola soy Asimov!")
 
-# Crear un botón que al hacer clic muestre un mensaje
-if st.button('Mostrar alerta'):
-    st.write("¡Hola soy Asimov!")
+st.sidebar.markdown('</div>', unsafe_allow_html=True)
 
-# Manejo de la comunicación con el chatbot
-if st.session_state.get('user_input'):
-    user_input = st.session_state.user_input
-    response = chatbot_response(user_input) # type: ignore # type: ignore
-    st.session_state['chat_history'].append({'user': user_input, 'bot': response['response']})
+# Mover la sección "Cómo utilizar la herramienta" al final de la página principal
